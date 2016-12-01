@@ -11,7 +11,10 @@ docker build -t hidetarou2013/jdk8tom8mvn3:v1.1 .
 ## docker run
 
 ```
-docker run --name jdk8tomcat8mvn3_1 -d -p 8888:8080 hidetarou2013/jdk8tom8mvn3:v1.1
+docker create --name mysqld_ennea_storage hidetarou2013/mysql-storage
+docker run --volumes-from mysqld_ennea_storage --name mysqld_ennea -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mysqladmin -e MYSQL_USER=kenshuu -e MYSQL_PASSWORD=kenshuu -e MYSQL_DATABASE=ennea -d hidetarou2013/mysql-server:BASE
+
+docker run --name jdk8tomcat8mvn3_1 -d -p 8888:8080  --link mysqld_ennea:mysql hidetarou2013/jdk8tom8mvn3:v1.1
 ```
 
 ## docker cp
