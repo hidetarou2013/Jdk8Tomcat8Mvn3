@@ -23,10 +23,12 @@ docker run --name jdk8tomcat8mvn3_1 -d -p 8888:8080  --link mysqld_ennea:mysql h
 docker cp /vagrant/ennea-1.0.0-BUILD-SNAPSHOT.war jdk8tomcat8mvn3_1:/usr/local/tomcat/webapps/ennea.war
 ```
 
-## application build & deploy
+## application build & deploy sample
 
 
 ```
+$ docker-enter jdk8tomcat8mvn3_1
+
 # mkdir work
 # cd work/
 # git clone https://hidetarou2013@bitbucket.org/eit201608/enneaproject.git
