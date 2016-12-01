@@ -3,6 +3,10 @@ MAINTAINER hidetarou2013 <hide1227@gmail.com>
 
 EXPOSE 8080
 
+## env
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+RUN export JAVA_HOME
+
 #VOLUME /var/lib/mysql
 #ADD usrlocaltomcatbin/catalina.sh /usr/local/tomcat/bin/
 #ADD usrlocaltomcatconf/server.xml_workbook /usr/local/tomcat/conf/server.xml
